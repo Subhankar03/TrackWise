@@ -1,0 +1,184 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Hide header and footer */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Global Styles */
+.stApp {
+    font-family: 'Inter', sans-serif;
+}
+
+.stMainBlockContainer {
+    padding: 3rem clamp(.5rem, 3vw, 4rem);
+}
+
+/* Header Styling */
+.main-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 2rem;
+    border-radius: 35px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.main-header h1 {
+    font-size: clamp(2.5rem, 3vw, 4rem);
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.main-header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.9;
+    font-weight: 350;
+}
+
+/* Input Field Styling */
+.stTextInput [data-baseweb="input"],
+.stTextArea [data-baseweb="textarea"] {
+    border-radius: 25px;
+    border: 2px solid #d0d7de;
+    transition: all 0.3s ease;
+}
+
+.stTextInput [data-baseweb="input"]:hover,
+.stTextArea [data-baseweb="textarea"]:hover {
+	border-color: #667eea;
+    box-shadow: 0 -3px 10px 3px hsla(0, 0%, 100%, 1),
+                0 3px 10px 3px hsla(0, 0%, 0%, 0.12);
+}
+
+/* File Uploader Styling */
+[data-testid="stFileUploaderDropzone"] {
+    border: 2px dashed #d0d7de;
+    transition: all 0.3s ease;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    box-shadow: 0 -3px 10px 3px hsla(0, 0%, 100%, 1),
+                0 3px 10px 3px hsla(0, 0%, 0%, 0.12);
+}
+
+[data-testid="stBaseButton-secondary"] {
+    border: 2px solid #d0d7de;
+    transition: all 0.3s ease;
+}
+
+/* Button Styling */
+.stButton > button {
+	position: relative;
+	overflow: hidden;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.stButton > button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #667eea;
+    border-radius: 25px;
+    opacity: 0;
+    z-index: -1;
+    transition: all .3s ease;
+}
+
+.stButton > button:hover {
+	transform: scale(1.03);
+    box-shadow: 0 -3px 10px 3px hsla(0, 0%, 100%, 1),
+                0 3px 10px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.stButton > button:hover::after {
+	opacity: 1;
+}
+
+.stButton > button:active {
+	transform: scale(.97);
+    box-shadow: none;
+}
+
+.stButton > button:active::after {
+	opacity: 0;
+}
+
+/* Score Display */
+.score-container {
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #50cde6, #508ee6);
+    color: white;
+    animation: scoreAppear 0.6s ease-out;
+}
+
+@keyframes scoreAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.score-number {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.score-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+/* Improvement Section */
+.improvement-section {
+    background: #daf2e0;
+    padding: 1.5rem;
+    border-radius: 35px;
+    border-left: 5px solid #28a745;
+    color: #155724;
+}
+
+/* Recommendation Section */
+.recommendation-section {
+    background: #fff3cd;
+    padding: 1.5rem;
+    border-radius: 35px;
+    border-left: 5px solid #ffc107;
+    color: #856404;
+}
+
+/* Portfolio link */
+a {
+	color: #666;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Gemini Text */
+.gemini-text {
+    background: linear-gradient(to right, #4c89eb, #9475d1, #d27988);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
