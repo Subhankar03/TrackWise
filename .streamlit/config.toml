@@ -1,5 +1,9 @@
 [theme]
 base = "light"
+baseRadius = "25px"
 primaryColor = "#667eea"
 backgroundColor = "#eff2f6"
 secondaryBackgroundColor = "#ffffff"
+
+[server]
+enableStaticServing = true
