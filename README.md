@@ -5,11 +5,9 @@ Optimize your resume for job applications using AI-powered analysis.
 
 ![Preview](static/preview.png)
 
----
-
 ## 🚀 Features
 
-* Upload your resume (PDF)
+* Upload your resume (PDF or DOCX)
 * Paste the job description
 * Get an instant ATS Match Score (0-100)
 * Identify:  
@@ -71,7 +69,7 @@ streamlit run app.py
 
 ## 🎓 Project Structure
 
-```
+```text
 .
 ├── app.py              # Main Streamlit app
 ├── style.css           # Custom styling
@@ -84,7 +82,7 @@ streamlit run app.py
 
 ## 🚨 Notes
 
-* Resume file must be in **PDF** format
+* Resume file must be in **PDF** or **DOCX** format
 * Analysis works best with detailed job descriptions
 * API key is **required** to access Gemini model
 
@@ -92,13 +90,15 @@ streamlit run app.py
 
 ## 🌟 Demo
 
-**Live demo:** https://trackwise.streamlit.app/
+**Live demo:** <https://trackwise.streamlit.app>
 
 ---
 
 ## 👨‍💼 Author
 
-[**Subhankar Dutta**](https://subhankar-dutta.streamlit.app)
+**Subhankar Dutta**
+[See my portfolio](https://subhankar-dutta.streamlit.app)
+[Connect me on LinkedIn](https://www.linkedin.com/in/subhankardutta03)
 
 ---
 
