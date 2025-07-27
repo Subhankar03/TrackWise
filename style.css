@@ -65,11 +65,6 @@ header {visibility: hidden;}
                 0 3px 10px 3px hsla(0, 0%, 0%, 0.12);
 }
 
-[data-testid="stBaseButton-secondary"] {
-    border: 2px solid #d0d7de;
-    transition: all 0.3s ease;
-}
-
 /* Button Styling */
 .stButton > button {
 	position: relative;
@@ -167,6 +162,59 @@ header {visibility: hidden;}
     color: #856404;
 }
 
+/* Interview QnA Card */
+.qa-card {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 2px solid #d0d7de;
+    border-radius: 25px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    height: 100%;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
+}
+
+.qa-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(hsl(215, 100%, 75%), hsl(190, 100%, 80%));
+    z-index: -1;
+    transform: scale(2.5) translate(-101%, -101%) rotate(135deg);
+    transition: transform .5s ease-out;
+}
+
+.qa-card:hover::before {
+    transform: scale(2.5) translate(0, 0) rotate(135deg);
+}
+
+.qa-card:hover {
+    border-color: #d0d7de00;
+    box-shadow: 0 -3px 10px 3px hsla(0, 0%, 100%, 1),
+                0 3px 10px 3px hsla(0, 0%, 0%, 0.12);
+}
+
+.question {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+[data-testid="stBaseButton-primary"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 400px;
+    padding: 12px 30px;
+}
+
 /* Portfolio link */
 a {
 	color: #666;
@@ -180,5 +228,6 @@ a:hover {
 .gemini-text {
     background: linear-gradient(to right, #4c89eb, #9475d1, #d27988);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
