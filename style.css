@@ -25,7 +25,14 @@ header {visibility: hidden;}
     color: white;
 }
 
+.main-header img {
+    width: 64px;
+    margin: 0 1rem 1rem 0;
+}
+
 .main-header h1 {
+    display: inline-block;
+    vertical-align: middle;
     font-size: clamp(2.5rem, 3vw, 4rem);
     font-weight: 800;
     margin-top: 0;
@@ -57,6 +64,7 @@ header {visibility: hidden;}
 /* File Uploader Styling */
 [data-testid="stFileUploaderDropzone"] {
     border: 2px dashed #d0d7de;
+    height: 100px;
     transition: all 0.3s ease;
 }
 

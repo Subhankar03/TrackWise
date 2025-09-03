@@ -11,9 +11,8 @@ from pypdf import PdfReader
 # Configure page
 st.set_page_config(
 	page_title="TrackWise - ATS Resume Analyzer",
-	page_icon="🎯",
+	page_icon="app/static/target.png",
 	layout="wide",
-	initial_sidebar_state="collapsed"
 )
 
 # Check for API key
@@ -50,22 +49,23 @@ def extract_text_from_file(uploaded_file) -> str:
 			for page in pdf_reader.pages:
 				text += page.extract_text() + "\n"
 			return text.strip()
-			
+		
 		elif file_type == 'docx':
 			# Extract text from DOCX
 			doc = docx.Document(uploaded_file)
 			text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
 			return text.strip()
-			
+		
 		else:
 			st.error(f"Unsupported file format: {file_type}. Please upload a PDF or DOCX file.")
 			return ""
-			
+	
 	except Exception as e:
 		st.error(f"Error extracting text from file: {str(e)}")
 		return ""
 
-@st.cache_data	# DELETE  THIS BEFORE COMMITTING 
+
+@st.cache_data  # DELETE  THIS BEFORE COMMITTING
 def analyze_resume(job_role: str, job_description: str, resume_text: str) -> ATSAnalysis | None:
 	"""Analyze resume using LangChain and Google Gemini"""
 	try:
@@ -118,7 +118,7 @@ def create_qna_pdf(interview_qna: list[dict]) -> bytes:
 		pdf.set_font("Arial", '', 12)
 		pdf.multi_cell(0, 7, f"{qa['answer']}".encode('latin-1', 'replace').decode('latin-1'))
 		pdf.ln(5)
-	return pdf.output(dest='S').encode('latin-1') # type: ignore
+	return pdf.output(dest='S').encode('latin-1')  # type: ignore
 
 
 def display_results(analysis: ATSAnalysis, mode: str):
@@ -174,7 +174,7 @@ def display_results(analysis: ATSAnalysis, mode: str):
 			{''.join([f"<p>{i}. {suggestion}</p>" for i, suggestion in enumerate(analysis.improvement_suggestions, 1)])}
 		</div>
 		""")
-
+		
 		# Recommendations
 		if analysis.recommendations:
 			st.html(f"""
@@ -189,8 +189,7 @@ def display_results(analysis: ATSAnalysis, mode: str):
 		if analysis.interview_questions:
 			st.markdown("### 🎯 Prepare for Your Interview")
 			st.markdown("Here are some potential interview questions based on your resume.")
-
-
+			
 			col1, col2 = st.columns(2)
 			
 			for index, qa in enumerate(analysis.interview_questions):
@@ -202,7 +201,7 @@ def display_results(analysis: ATSAnalysis, mode: str):
 							<p style="color: #333333;">{qa['answer']}</p>
 						</div>
 					""")
-
+			
 			# Add download button
 			pdf_bytes = create_qna_pdf(analysis.interview_questions)
 			st.download_button(
@@ -214,11 +213,13 @@ def display_results(analysis: ATSAnalysis, mode: str):
 				on_click="ignore"
 			)
 
+
 # Header
 st.html("""
 <div class="main-header">
-	<h1>🎯 TrackWise</h1>
-	<p>Advanced ATS Resume Analyzer &nbsp;•&nbsp; Optimize Your Resume for Success</p>
+    <img src="app/static/target.png">
+    <h1>TrackWise</h1>
+    <p>Advanced ATS Resume Analyzer &nbsp;•&nbsp; Optimize Your Resume for Success</p>
 </div>
 """)
 
@@ -227,7 +228,8 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
 	job_role = st.text_input("🎯 Job Role", placeholder="e.g., Data Analyst, Software Engineer")
-	uploaded_file = st.file_uploader("📄 Upload Resume", type=['pdf', 'docx'], help="Upload your resume in PDF or DOCX format")
+	uploaded_file = st.file_uploader("📄 Upload Resume", type=['pdf', 'docx'],
+									 help="Upload your resume in PDF or DOCX format")
 
 with col2:
 	job_description = st.text_area(
@@ -246,6 +248,7 @@ with col2:
 if 'analysis_result' not in st.session_state:
 	st.session_state.analysis_result = None
 
+
 def run_analysis(mode: str):
 	if not job_role.strip():
 		st.error("⚠️ Please enter the job role")
@@ -262,7 +265,9 @@ def run_analysis(mode: str):
 				if not st.session_state.analysis_result:
 					st.error("❌ Failed to analyze the resume. Please try again.")
 			else:
-				st.error("❌ Failed to extract text from file. Please ensure the file is readable and in the correct format.")
+				st.error(
+					"❌ Failed to extract text from file. Please ensure the file is readable and in the correct format.")
+
 
 if analyze_button:
 	run_analysis('analysis')
