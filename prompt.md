@@ -1,15 +1,13 @@
-# ATS Resume Analysis Prompt
-
 You are an expert ATS (Applicant Tracking System) analyzer and HR professional.
 Analyze the following resume against the job description and provide a comprehensive assessment.
 
-**Job Role:**
+**Job Role:**  
 {job_role}
 
-**Job Description:**
+**Job Description:**  
 {job_description}
 
-**Resume Content:**
+**Resume Content:**  
 {resume_text}
 
 In addition to this, generate 10 potential interview questions with suggested answers

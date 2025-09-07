@@ -67,19 +67,6 @@ streamlit run app.py
 
 ---
 
-## 🎓 Project Structure
-
-```text
-.
-├── app.py              # Main Streamlit app
-├── style.css           # Custom styling
-├── preview.png         # UI screenshot
-└── .streamlit
-    └── secrets.toml    # API key (not tracked)
-```
-
----
-
 ## 🚨 Notes
 
 * Resume file must be in **PDF** or **DOCX** format
@@ -118,4 +105,4 @@ MIT License. See `LICENSE` file for details.
 
 Feel free to fork, use, or contribute!
 
-> Built with passion to help job seekers land interviews faster.
+> Built with passion to help jobseekers land interviews faster.
