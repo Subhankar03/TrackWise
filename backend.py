@@ -66,9 +66,9 @@ def analyze_resume(job_role: str, job_description: str, resume_text: str) -> ATS
 			)
 		
 		model = ChatGoogleGenerativeAI(
-			model="gemini-2.5-flash",
+			model="gemini-3-flash-preview",
 			google_api_key=st.secrets["GEMINI_API_KEY"],
-			temperature=0, thinking_budget=0
+			thinking_level="low"
 		)
 		
 		chain = prompt_template | model | parser
