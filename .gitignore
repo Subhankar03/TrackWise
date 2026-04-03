@@ -21,7 +21,3 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-
-# Project configuration
-pyproject.toml
-uv.lock

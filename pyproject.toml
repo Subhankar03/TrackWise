@@ -1,0 +1,14 @@
+[project]
+name = "trackwise"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "fpdf",
+    "langchain-core",
+    "langchain-google-genai",
+    "pydantic",
+    "pypdf",
+    "python-docx",
+    "streamlit",
+]

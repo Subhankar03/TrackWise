@@ -5,7 +5,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pydantic import BaseModel, Field
 from pypdf import PdfReader
-import streamlit as st
 
 
 class FileProcessingError(Exception):
@@ -67,7 +66,6 @@ def analyze_resume(job_role: str, job_description: str, resume_text: str) -> ATS
 		
 		model = ChatGoogleGenerativeAI(
 			model="gemini-3-flash-preview",
-			google_api_key=st.secrets["GEMINI_API_KEY"],
 			thinking_level="low"
 		)
 		

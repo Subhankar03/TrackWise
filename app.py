@@ -16,7 +16,7 @@ st.set_page_config(
 )
 
 # Check for API key
-if "GEMINI_API_KEY" not in st.secrets:
+if "GOOGLE_API_KEY" not in st.secrets:
 	st.error("🚨 Gemini API key not found! Please add it to your `.streamlit/secrets.toml` file.")
 	st.stop()
 
